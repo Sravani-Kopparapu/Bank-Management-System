@@ -1,0 +1,27 @@
+Enter Bank Name: 
+IDBI
+Enter User Id: 
+205
+Enter User Name: 
+Vijay
+Enter Account Number: 
+3456789
+Enter Account Type: 
+Salary
+Enter Opening Balance: 
+10000
+Bank Name: IDBI
+User ID: 205
+User Name: Vijay
+Account Number: 3456789
+Account Type: Salary
+Balance: 10000.0
+Account Summary
+Bank Name: IDBI
+ User Name: Vijay
+ Account Number: 3456789
+ Account Type: Salary
+ Current Balance: 10000.0
+Enter Minimum Balance: 
+8000
+Minimum balance is maintained
