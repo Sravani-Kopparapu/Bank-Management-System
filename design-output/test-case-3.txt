@@ -1,0 +1,112 @@
+Enter Bank Name: 
+SBI
+Enter User Id: 
+123
+Enter User Name: 
+Nabeel
+Enter Account Number: 
+3456789
+Enter Account Type: 
+Savings
+Enter Opening Balance: 
+5900
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+1
+Bank Name: SBI
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+2
+User ID: 123
+User Name: Nabeel
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+4
+Bank Name: SBI
+User Name: Nabeel
+Account Number: 3456789
+Account Type: Savings
+Current Balance: 5900.0
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+3
+Account Number: 3456789
+Account Type: Savings
+Balance: 5900.0
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+5
+Enter Minimum Balance: 
+5000
+Minimum balance is maintained
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+9
+Invalid choice. Try again with a valid number between 1 to 6
+
+===============Menu================
+
+1. Display Bank Details
+2. Display User Details
+3. Display Account Details
+4. Display Account Summary
+5. Check if Minimum Balance is Maintained
+6. Exit
+
+Enter your choice: 
+6
+Thank you for using our banking service. Exiting the application.
