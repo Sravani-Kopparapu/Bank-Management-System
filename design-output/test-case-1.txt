@@ -1,0 +1,27 @@
+Enter Bank Name: 
+SBI Bank
+Enter User Id: 
+101
+Enter User Name: 
+Rahul
+Enter Account Number: 
+52436745
+Enter Account Type: 
+Savings Account
+Enter Opening Balance: 
+5000
+Bank Name: SBI Bank
+User ID: 101
+User Name: Rahul
+Account Number: 52436745
+Account Type: Savings Account
+Balance: 5000.0
+Account Summary
+Bank Name: SBI Bank
+ User Name: Rahul
+ Account Number: 52436745
+ Account Type: Savings Account
+ Current Balance: 5000.0
+Enter Minimum Balance: 
+10000
+Minimum balance is not maintained
