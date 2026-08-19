@@ -34,10 +34,10 @@ class Bank {
 
     String createAccountSummary() {
         String accountSummary = "Bank Name: " + bankName
-                + "\n User Name: " + userName
-                + "\n Account Number: " + accountNumber
-                + "\n Account Type: " + accountType
-                + "\n Current Balance: " + balance;
+                + "\nUser Name: " + userName
+                + "\nAccount Number: " + accountNumber
+                + "\nAccount Type: " + accountType
+                + "\nCurrent Balance: " + balance;
         return accountSummary;
     }
 
@@ -47,6 +47,27 @@ class Bank {
             result = true;
         }
         return result;
+    }
+
+    boolean deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            return true;
+        }
+        return false;
+    }
+
+    boolean withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance = balance - amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    double checkBalance() {
+        return balance;
     }
 
 }

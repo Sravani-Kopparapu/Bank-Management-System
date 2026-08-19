@@ -25,12 +25,13 @@ class BankApplication {
             System.out.println();
             System.out.println("===============Menu================");
             System.out.println();
-            System.out.println("1. Display Bank Details");
-            System.out.println("2. Display User Details");
-            System.out.println("3. Display Account Details");
-            System.out.println("4. Display Account Summary");
-            System.out.println("5. Check if Minimum Balance is Maintained");
-            System.out.println("6. Exit");
+            System.out.println("1. Display Complete Details");
+            System.out.println("2. Deposit Amount");
+            System.out.println("3. Withdraw Amount");
+            System.out.println("4. Check Balance");
+            System.out.println("5. Display Account Summary");
+            System.out.println("6. Check Minimum Balance");
+            System.out.println("0. Exit");
             System.out.println();
             System.out.println("Enter your choice: ");
             int choice = sc.nextInt();
@@ -38,18 +39,40 @@ class BankApplication {
             switch (choice) {
                 case 1:
                     bank.displayBankDetails();
-                    break;
-                case 2:
                     bank.displayUserDetails();
-                    break;
-                case 3:
                     bank.displayAccountDetails();
                     break;
+                case 2:
+                    System.out.println("Enter the amount you want to deposit: ");
+                    double amount = sc.nextDouble();
+                    boolean res = bank.deposit(amount);
+                    if (res) {
+                        System.out.println("Amount deposited successfully");
+                        System.out.println("Updated Balance:" + bank.checkBalance());
+                    } else {
+                        System.out.println("Deposit Failed");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter the amount you want to withdraw: ");
+                    double withdrawAmount = sc.nextDouble();
+                    boolean res2 = bank.withdraw(withdrawAmount);
+                    if (res2) {
+                        System.out.println("Amount withdrawn successfully");
+                        System.out.println("Updated Balance: " + bank.checkBalance());
+                    } else {
+                        System.out.println("Withdrawal Failed");
+                    }
+                    break;
                 case 4:
+                    double balance = bank.checkBalance();
+                    System.out.println("Current Balance: " + balance);
+                    break;
+                case 5:
                     String summary = bank.createAccountSummary();
                     System.out.println(summary);
                     break;
-                case 5:
+                case 6:
                     System.out.println("Enter Minimum Balance: ");
                     double minimumBalance = sc.nextDouble();
                     boolean result = bank.hasMinimumBalance(minimumBalance);
@@ -59,14 +82,14 @@ class BankApplication {
                         System.out.println("Minimum balance is not maintained");
                     }
                     break;
-                case 6:
+                case 0:
                     System.out.println("Thank you for using our banking service. Exiting the application.");
                     break;
                 default:
                     System.out.println("Invalid choice. Try again with a valid number between 1 to 6");
                     break;
             }
-            if (choice == 6) {
+            if (choice == 0) {
                 break;
             }
         } while (true);
