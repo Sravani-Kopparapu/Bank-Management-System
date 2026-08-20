@@ -5,22 +5,29 @@ class BankApplication {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Bank Name: ");
-        String bankName = sc.nextLine();
-        System.out.println("Enter User Id: ");
-        int userId = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Enter User Name: ");
-        String userName = sc.nextLine();
-        System.out.println("Enter Account Number: ");
-        long accountNumber = sc.nextLong();
-        sc.nextLine();
-        System.out.println("Enter Account Type: ");
-        String accountType = sc.nextLine();
-        System.out.println("Enter Opening Balance: ");
-        double openingBalance = sc.nextDouble();
 
-        Bank bank = new Bank(bankName, userId, userName, accountNumber, accountType, openingBalance);
+        int numberOfAccounts = sc.nextInt();
+        Bank[] bankAccounts = new Bank[numberOfAccounts];
+        for (int i = 0; i < numberOfAccounts; i++) {
+            System.out.println("Enter Bank Name: ");
+            String bankName = sc.nextLine();
+            System.out.println("Enter User Id: ");
+            int userId = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Enter User Name: ");
+            String userName = sc.nextLine();
+            System.out.println("Enter Account Number: ");
+            long accountNumber = sc.nextLong();
+            sc.nextLine();
+            System.out.println("Enter Account Type: ");
+            String accountType = sc.nextLine();
+            System.out.println("Enter Opening Balance: ");
+            double openingBalance = sc.nextDouble();
+
+            bankAccounts[i] = new Bank(bankName, userId, userName, accountNumber, accountType, openingBalance);
+
+        }
+
         do {
             System.out.println();
             System.out.println("===============Menu================");
@@ -38,44 +45,114 @@ class BankApplication {
 
             switch (choice) {
                 case 1:
-                    bank.displayBankDetails();
-                    bank.displayUserDetails();
-                    bank.displayAccountDetails();
+                    for (int i = 0; i <= numberOfAccounts - 1; i++) {
+                        bankAccounts[i].displayCompleteDetails();
+                    }
                     break;
                 case 2:
+                    System.out.println("Enter Account Number: ");
+                    long accountNumber = sc.nextLong();
+                    sc.nextLine();
+                    Bank selectedAccount = null;
+                    for (int i = 0; i <= numberOfAccounts - 1; i++) {
+                        if (bankAccounts[i].matchesAccountNumber(accountNumber)) {
+                            selectedAccount = bankAccounts[i];
+                            break;
+                        }
+                    }
+                    if (selectedAccount == null) {
+                        System.out.println("Account not found.");
+                        break;
+                    }
                     System.out.println("Enter the amount you want to deposit: ");
                     double amount = sc.nextDouble();
-                    boolean res = bank.deposit(amount);
+                    boolean res = selectedAccount.deposit(amount);
                     if (res) {
                         System.out.println("Amount deposited successfully");
-                        System.out.println("Updated Balance:" + bank.checkBalance());
+                        System.out.println("Updated Balance:" + selectedAccount.checkBalance());
                     } else {
                         System.out.println("Deposit Failed");
                     }
                     break;
                 case 3:
+                    System.out.println("Enter Account Number: ");
+                    accountNumber = sc.nextLong();
+                    sc.nextLine();
+                    selectedAccount = null;
+                    for (int i = 0; i <= numberOfAccounts - 1; i++) {
+                        if (bankAccounts[i].matchesAccountNumber(accountNumber)) {
+                            selectedAccount = bankAccounts[i];
+                            break;
+                        }
+                    }
+                    if (selectedAccount == null) {
+                        System.out.println("Account not found.");
+                        break;
+                    }
                     System.out.println("Enter the amount you want to withdraw: ");
                     double withdrawAmount = sc.nextDouble();
-                    boolean res2 = bank.withdraw(withdrawAmount);
+                    boolean res2 = selectedAccount.withdraw(withdrawAmount);
                     if (res2) {
                         System.out.println("Amount withdrawn successfully");
-                        System.out.println("Updated Balance: " + bank.checkBalance());
+                        System.out.println("Updated Balance: " + selectedAccount.checkBalance());
                     } else {
                         System.out.println("Withdrawal Failed");
                     }
                     break;
                 case 4:
-                    double balance = bank.checkBalance();
+                    System.out.println("Enter Account Number: ");
+                    accountNumber = sc.nextLong();
+                    sc.nextLine();
+                    selectedAccount = null;
+                    for (int i = 0; i <= numberOfAccounts - 1; i++) {
+                        if (bankAccounts[i].matchesAccountNumber(accountNumber)) {
+                            selectedAccount = bankAccounts[i];
+                            break;
+                        }
+                    }
+                    if (selectedAccount == null) {
+                        System.out.println("Account not found.");
+                        break;
+                    }
+                    double balance = selectedAccount.checkBalance();
                     System.out.println("Current Balance: " + balance);
                     break;
                 case 5:
-                    String summary = bank.createAccountSummary();
+                    System.out.println("Enter Account Number: ");
+                    accountNumber = sc.nextLong();
+                    sc.nextLine();
+                    selectedAccount = null;
+                    for (int i = 0; i <= numberOfAccounts - 1; i++) {
+                        if (bankAccounts[i].matchesAccountNumber(accountNumber)) {
+                            selectedAccount = bankAccounts[i];
+                            break;
+                        }
+                    }
+                    if (selectedAccount == null) {
+                        System.out.println("Account not found.");
+                        break;
+                    }
+                    String summary = selectedAccount.createAccountSummary();
                     System.out.println(summary);
                     break;
                 case 6:
+                    System.out.println("Enter Account Number: ");
+                    accountNumber = sc.nextLong();
+                    sc.nextLine();
+                    selectedAccount = null;
+                    for (int i = 0; i <= numberOfAccounts - 1; i++) {
+                        if (bankAccounts[i].matchesAccountNumber(accountNumber)) {
+                            selectedAccount = bankAccounts[i];
+                            break;
+                        }
+                    }
+                    if (selectedAccount == null) {
+                        System.out.println("Account not found.");
+                        break;
+                    }
                     System.out.println("Enter Minimum Balance: ");
                     double minimumBalance = sc.nextDouble();
-                    boolean result = bank.hasMinimumBalance(minimumBalance);
+                    boolean result = selectedAccount.hasMinimumBalance(minimumBalance);
                     if (result == true) {
                         System.out.println("Minimum balance is maintained");
                     } else {
